@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acute Stroke Clinical Decision Support</title>
+    <title>Stroke Clinical Tool</title>
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -202,14 +202,14 @@
             <div className="max-w-7xl mx-auto p-6 bg-white">
               {/* Header */}
               <div className="mb-6">
-                <h1 className="text-3xl font-bold text-blue-900 mb-2">Acute Stroke Clinical Decision Support</h1>
+                <h1 className="text-3xl font-bold text-blue-900 mb-2">Stroke</h1>
               </div>
 
               {/* Navigation Tabs */}
               <div className="border-b border-gray-200 mb-6">
                 <nav className="flex space-x-8 overflow-x-auto">
                   {[
-                    { id: 'workflow', name: 'Workflow', icon: 'check-circle' },
+                    { id: 'workflow', name: 'Acute Stroke Workflow', icon: 'check-circle' },
                     { id: 'nihss', name: 'NIH Stroke Scale', icon: 'brain' },
                     { id: 'imaging', name: 'Imaging & ASPECTS', icon: 'file-text' },
                     { id: 'lytic', name: 'Lytic Eligibility', icon: 'alert-triangle' },
@@ -978,137 +978,164 @@
                 {/* Trials */}
                 {activeTab === 'trials' && (
                   <div className="space-y-6">
-                    {/* STEP-EVT */}
-                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                      <h2 className="text-xl font-semibold text-blue-800 mb-4">STEP-EVT</h2>
+                    {/* Acute Section */}
+                    <div>
+                      <h2 className="text-2xl font-bold text-gray-800 mb-4">Acute</h2>
                       
-                      {/* Inclusions */}
-                      <div className="mb-6">
-                        <h3 className="text-lg font-semibold text-green-700 mb-3">Inclusions</h3>
-                        <div className="bg-white p-4 rounded border">
-                          <ol className="text-sm space-y-2 list-decimal list-inside">
-                            <li>Age 18 years or older</li>
-                            <li>Pre-stroke modified Rankin Scale score 0-2</li>
-                            <li>Within 24 hours of last known well</li>
-                            <li>Has any one or more of the following presentations:
-                              <ol className="ml-6 mt-2 space-y-1 list-decimal list-inside">
-                                <li>Low NIHSS Patient (must have both):
-                                  <ol className="ml-6 mt-1 space-y-1 list-decimal list-inside">
-                                    <li>Mild presenting neurologic deficits - NIHSS 0-5</li>
-                                    <li>Occlusion of the intracranial ICA or M1 MCA</li>
-                                  </ol>
-                                </li>
-                              </ol>
-                            </li>
-                          </ol>
+                      {/* STEP-EVT */}
+                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                        <h3 className="text-xl font-semibold text-blue-800 mb-4">STEP-EVT</h3>
+                        
+                        {/* Inclusions */}
+                        <div className="mb-6">
+                          <h4 className="text-lg font-semibold text-green-700 mb-3">Inclusions</h4>
+                          <div className="bg-white p-4 rounded border">
+                            <ol className="text-sm space-y-2 list-decimal list-inside">
+                              <li>Age 18 years or older</li>
+                              <li>Pre-stroke modified Rankin Scale score 0-2</li>
+                              <li>Within 24 hours of last known well</li>
+                              <li>Has any one or more of the following presentations:
+                                <ol className="ml-6 mt-2 space-y-1 list-decimal list-inside">
+                                  <li>Low NIHSS Patient (must have both):
+                                    <ol className="ml-6 mt-1 space-y-1 list-decimal list-inside">
+                                      <li>Mild presenting neurologic deficits - NIHSS 0-5</li>
+                                      <li>Occlusion of the intracranial ICA or M1 MCA</li>
+                                    </ol>
+                                  </li>
+                                </ol>
+                              </li>
+                            </ol>
+                          </div>
+                        </div>
+
+                        {/* Exclusions */}
+                        <div>
+                          <h4 className="text-lg font-semibold text-red-700 mb-3">Exclusions</h4>
+                          
+                          <div className="mb-4">
+                            <h5 className="font-semibold text-red-600 mb-2">Clinical</h5>
+                            <div className="bg-white p-3 rounded border">
+                              <ul className="text-sm space-y-1">
+                                <li>Presumed septic embolus; suspicion of bacterial endocarditis</li>
+                                <li>Seizure at stroke onset or between onset and enrollment</li>
+                                <li>Allergy to contrast material that precludes endovascular reperfusion therapy</li>
+                                <li>Intracranial occlusion suspected to be chronic, based on history and/or imaging</li>
+                                <li>Intracranial dissection, based on history and/or imaging</li>
+                                <li>Cerebral vasculitis, based on history and/or imaging</li>
+                                <li>Known pregnancy</li>
+                                <li>Known pre-existing medical, neurological or psychiatric disease that would confound the neurological or functional evaluations</li>
+                                <li>Known serious, advanced, or terminal illness or life expectancy less than 6 months in the investigator judgment.</li>
+                              </ul>
+                            </div>
+                          </div>
+
+                          <div className="mb-4">
+                            <h5 className="font-semibold text-red-600 mb-2">Laboratory</h5>
+                            <div className="bg-white p-3 rounded border">
+                              <ul className="text-sm space-y-1">
+                                <li>Known platelet count &lt; 100,000/uL</li>
+                              </ul>
+                            </div>
+                          </div>
+
+                          <div>
+                            <h5 className="font-semibold text-red-600 mb-2">Imaging</h5>
+                            <div className="bg-white p-3 rounded border">
+                              <ul className="text-sm space-y-1">
+                                <li>Unfavorable vascular anatomy that limits access to the occluded artery precluding endovascular reperfusion therapy.</li>
+                                <li>Acute occlusions in multiple vascular territories (e.g., bilateral anterior circulation, or anterior/posterior circulation)</li>
+                                <li>Significant mass effect with midline shift (&gt;5mm)</li>
+                                <li>Evidence of intra-axial tumor (except small meningioma)</li>
+                                <li>Evidence of acute intracranial hemorrhage</li>
+                              </ul>
+                            </div>
+                          </div>
                         </div>
                       </div>
 
-                      {/* Exclusions */}
-                      <div>
-                        <h3 className="text-lg font-semibold text-red-700 mb-3">Exclusions</h3>
+                      {/* SISTER */}
+                      <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
+                        <h3 className="text-xl font-semibold text-purple-800 mb-4">SISTER - TS23 (mAb to α2-antiplasmin)</h3>
                         
-                        <div className="mb-4">
-                          <h4 className="font-semibold text-red-600 mb-2">Clinical</h4>
-                          <div className="bg-white p-3 rounded border">
+                        {/* Inclusion Criteria */}
+                        <div className="mb-6">
+                          <h4 className="text-lg font-semibold text-green-700 mb-3">Inclusion Criteria:</h4>
+                          <div className="bg-white p-4 rounded border">
                             <ul className="text-sm space-y-1">
-                              <li>Presumed septic embolus; suspicion of bacterial endocarditis</li>
-                              <li>Seizure at stroke onset or between onset and enrollment</li>
-                              <li>Allergy to contrast material that precludes endovascular reperfusion therapy</li>
-                              <li>Intracranial occlusion suspected to be chronic, based on history and/or imaging</li>
-                              <li>Intracranial dissection, based on history and/or imaging</li>
-                              <li>Cerebral vasculitis, based on history and/or imaging</li>
-                              <li>Known pregnancy</li>
-                              <li>Known pre-existing medical, neurological or psychiatric disease that would confound the neurological or functional evaluations</li>
-                              <li>Known serious, advanced, or terminal illness or life expectancy less than 6 months in the investigator judgment.</li>
+                              <li>- Age ≥ 18 years</li>
+                              <li>- Suspected anterior circulation acute ischemic stroke</li>
+                              <li>- Presenting NIHSS ≥ 4 (clearly disabling if NIHSS 4–5)</li>
+                              <li>- ASPECTS ≥ 6 on CT or ASPECTS ≥ 7 on MRI</li>
+                              <li>- Perfusion imaging (CTP/PWI) showing:
+                                <ul className="ml-4 mt-1 space-y-1">
+                                  <li>• Mismatch ratio (penumbra:core) &gt; 1.2</li>
+                                  <li>• Mismatch volume &gt; 10 cc</li>
+                                  <li>• Core volume &lt; 70 cc</li>
+                                </ul>
+                              </li>
+                              <li>- Able to receive study drug within 4.5–24 h of stroke onset or LKW</li>
+                              <li>- Able to receive study drug within 120 minutes of qualifying perfusion imaging</li>
+                              <li>- Informed consent obtained from patient or LAR</li>
                             </ul>
                           </div>
                         </div>
 
-                        <div className="mb-4">
-                          <h4 className="font-semibold text-red-600 mb-2">Laboratory</h4>
-                          <div className="bg-white p-3 rounded border">
-                            <ul className="text-sm space-y-1">
-                              <li>Known platelet count &lt; 100,000/uL</li>
-                            </ul>
-                          </div>
-                        </div>
-
+                        {/* Exclusion Criteria */}
                         <div>
-                          <h4 className="font-semibold text-red-600 mb-2">Imaging</h4>
-                          <div className="bg-white p-3 rounded border">
+                          <h4 className="text-lg font-semibold text-red-700 mb-3">Exclusion Criteria:</h4>
+                          <div className="bg-white p-4 rounded border">
                             <ul className="text-sm space-y-1">
-                              <li>Unfavorable vascular anatomy that limits access to the occluded artery precluding endovascular reperfusion therapy.</li>
-                              <li>Acute occlusions in multiple vascular territories (e.g., bilateral anterior circulation, or anterior/posterior circulation)</li>
-                              <li>Significant mass effect with midline shift (&gt;5mm)</li>
-                              <li>Evidence of intra-axial tumor (except small meningioma)</li>
-                              <li>Evidence of acute intracranial hemorrhage</li>
+                              <li>- Endovascular treatment with clot engagement</li>
+                              <li>- Received or planned IV thrombolysis</li>
+                              <li>- Pre-stroke mRS &gt; 2</li>
+                              <li>- Prior TS23 treatment or antibody allergy</li>
+                              <li>- Pregnancy or breastfeeding, or positive pregnancy test</li>
+                              <li>- Stroke in past 90 days</li>
+                              <li>- Intracranial hemorrhage, neoplasm, SAH, or AVM</li>
+                              <li>- Active intracranial neoplasm</li>
+                              <li>- Clinical SAH presentation despite negative CT</li>
+                              <li>- Surgery/biopsy of parenchymal organ in last 30 days</li>
+                              <li>- Internal trauma or ulcerative wounds in last 30 days</li>
+                              <li>- Severe head trauma in last 90 days</li>
+                              <li>- Uncontrolled BP (SBP &gt; 180 or DBP &gt; 105)</li>
+                              <li>- Systemic hemorrhage in last 30 days</li>
+                              <li>- Hemorrhagic diathesis or INR &gt; 1.7</li>
+                              <li>- Platelets &lt; 100,000/mm³</li>
+                              <li>- Hematocrit &lt; 25%</li>
+                              <li>- Elevated aPTT above normal</li>
+                              <li>- Creatinine &gt; 4 mg/dL or dialysis</li>
+                              <li>- Heparin/LMWH full dose in last 24 h</li>
+                              <li>- Factor Xa inhibitors in last 48 h</li>
+                              <li>- Direct thrombin inhibitors in last 48 h</li>
+                              <li>- GP IIb/IIIa inhibitors in last 14 days</li>
+                              <li>- Neurological/psychiatric disease confounding assessments</li>
+                              <li>- Participation in another drug trial</li>
+                              <li>- Concurrent acute MI, PE, DVT, or other thrombotic event requiring anticoagulation</li>
                             </ul>
                           </div>
                         </div>
                       </div>
                     </div>
 
-                    {/* SISTER */}
-                    <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
-                      <h2 className="text-xl font-semibold text-purple-800 mb-4">SISTER - TS23 (mAb to α2-antiplasmin)</h2>
+                    {/* ICH Section */}
+                    <div className="mt-8">
+                      <h2 className="text-2xl font-bold text-gray-800 mb-4">ICH</h2>
                       
-                      {/* Inclusion Criteria */}
-                      <div className="mb-6">
-                        <h3 className="text-lg font-semibold text-green-700 mb-3">Inclusion Criteria:</h3>
-                        <div className="bg-white p-4 rounded border">
-                          <ul className="text-sm space-y-1">
-                            <li>- Age ≥ 18 years</li>
-                            <li>- Suspected anterior circulation acute ischemic stroke</li>
-                            <li>- Presenting NIHSS ≥ 4 (clearly disabling if NIHSS 4–5)</li>
-                            <li>- ASPECTS ≥ 6 on CT or ASPECTS ≥ 7 on MRI</li>
-                            <li>- Perfusion imaging (CTP/PWI) showing:
-                              <ul className="ml-4 mt-1 space-y-1">
-                                <li>• Mismatch ratio (penumbra:core) &gt; 1.2</li>
-                                <li>• Mismatch volume &gt; 10 cc</li>
-                                <li>• Core volume &lt; 70 cc</li>
-                              </ul>
-                            </li>
-                            <li>- Able to receive study drug within 4.5–24 h of stroke onset or LKW</li>
-                            <li>- Able to receive study drug within 120 minutes of qualifying perfusion imaging</li>
-                            <li>- Informed consent obtained from patient or LAR</li>
-                          </ul>
-                        </div>
+                      {/* SATURN */}
+                      <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                        <h3 className="text-xl font-semibold text-red-800 mb-4">SATURN</h3>
+                        <p className="text-sm text-gray-600">Study details coming soon...</p>
                       </div>
+                    </div>
 
-                      {/* Exclusion Criteria */}
-                      <div>
-                        <h3 className="text-lg font-semibold text-red-700 mb-3">Exclusion Criteria:</h3>
-                        <div className="bg-white p-4 rounded border">
-                          <ul className="text-sm space-y-1">
-                            <li>- Endovascular treatment with clot engagement</li>
-                            <li>- Received or planned IV thrombolysis</li>
-                            <li>- Pre-stroke mRS &gt; 2</li>
-                            <li>- Prior TS23 treatment or antibody allergy</li>
-                            <li>- Pregnancy or breastfeeding, or positive pregnancy test</li>
-                            <li>- Stroke in past 90 days</li>
-                            <li>- Intracranial hemorrhage, neoplasm, SAH, or AVM</li>
-                            <li>- Active intracranial neoplasm</li>
-                            <li>- Clinical SAH presentation despite negative CT</li>
-                            <li>- Surgery/biopsy of parenchymal organ in last 30 days</li>
-                            <li>- Internal trauma or ulcerative wounds in last 30 days</li>
-                            <li>- Severe head trauma in last 90 days</li>
-                            <li>- Uncontrolled BP (SBP &gt; 180 or DBP &gt; 105)</li>
-                            <li>- Systemic hemorrhage in last 30 days</li>
-                            <li>- Hemorrhagic diathesis or INR &gt; 1.7</li>
-                            <li>- Platelets &lt; 100,000/mm³</li>
-                            <li>- Hematocrit &lt; 25%</li>
-                            <li>- Elevated aPTT above normal</li>
-                            <li>- Creatinine &gt; 4 mg/dL or dialysis</li>
-                            <li>- Heparin/LMWH full dose in last 24 h</li>
-                            <li>- Factor Xa inhibitors in last 48 h</li>
-                            <li>- Direct thrombin inhibitors in last 48 h</li>
-                            <li>- GP IIb/IIIa inhibitors in last 14 days</li>
-                            <li>- Neurological/psychiatric disease confounding assessments</li>
-                            <li>- Participation in another drug trial</li>
-                            <li>- Concurrent acute MI, PE, DVT, or other thrombotic event requiring anticoagulation</li>
-                          </ul>
-                        </div>
+                    {/* Observational Section */}
+                    <div className="mt-8">
+                      <h2 className="text-2xl font-bold text-gray-800 mb-4">Observational</h2>
+                      
+                      {/* DISCOVERY */}
+                      <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                        <h3 className="text-xl font-semibold text-amber-800 mb-4">DISCOVERY</h3>
+                        <p className="text-sm text-gray-600">Study details coming soon...</p>
                       </div>
                     </div>
                   </div>
